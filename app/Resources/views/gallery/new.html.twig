@@ -1,0 +1,57 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Gallery creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+
+    <ul id="email-fields-list"
+        data-prototype="{{ form_widget(form.images.vars.prototype)|e }}">
+        {% for gimages in form.images %}
+            <li>
+                {{ form_errors(gimages) }}
+                {{ form_widget(gimages) }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="#" id="add-another-email">Add another email</a>
+
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('gallery_index') }}">Back to the list</a>
+        </li>
+    </ul>
+
+    <script type="text/javascript">
+        // keep track of how many email fields have been rendered
+        var emailCount = '{{ form.images|length }}';
+
+        jQuery(document).ready(function() {
+            jQuery('#add-another-email').click(function(e) {
+                e.preventDefault();
+
+                var emailList = jQuery('#email-fields-list');
+
+                // grab the prototype template
+                var newWidget = emailList.attr('data-prototype');
+                // replace the "__name__" used in the id and name of the prototype
+                // with a number that's unique to your emails
+                // end name attribute looks like name="contact[emails][2]"
+                newWidget = newWidget.replace(/__name__/g, emailCount);
+                emailCount++;
+
+                // create a new list element and add it to the list
+                var newLi = jQuery('<li></li>').html(newWidget);
+                newLi.appendTo(emailList);
+            });
+        })
+    </script>
+
+{% endblock %}

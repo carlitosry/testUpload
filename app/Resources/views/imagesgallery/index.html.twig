@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Imagesgalleries list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Imagename</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for imagesGallery in imagesGalleries %}
+            <tr>
+                <td><a href="{{ path('gallery_images_show', { 'id': imagesGallery.id }) }}">{{ imagesGallery.id }}</a></td>
+                <td>{{ imagesGallery.imageName }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('gallery_images_show', { 'id': imagesGallery.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('gallery_images_edit', { 'id': imagesGallery.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('gallery_images_new') }}">Create a new imagesGallery</a>
+        </li>
+    </ul>
+{% endblock %}
