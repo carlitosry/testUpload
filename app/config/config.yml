@@ -75,3 +75,8 @@ vich_uploader:
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true
+
+#manuel_translation:
+#    locales: [en, es] # Se deben definir los locales que el translator usará
+#    bundles:          # Los bundles de donde serán leidas las traducciones para pasarlas a la Base de Datos.
+#            - AppBundle

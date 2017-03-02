@@ -1,3 +1,15 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+#manuel_translation:
+#    resource: "@ManuelTranslationBundle/Controller/"
+#    type:     annotation
+#    prefix:   /{_locale}/_trans
+#
+#
+## Solo para el servidor
+#manuel_translation_api:
+#    resource: "@ManuelTranslationBundle/Controller/Api"
+#    type:     annotation
+#    prefix:   /api

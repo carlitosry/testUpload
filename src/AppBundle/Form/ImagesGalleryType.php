@@ -13,7 +13,12 @@ class ImagesGalleryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('imageFile', 'vich_image',array() );
+        $builder->add('imageFile', 'vich_image',array(
+            'label'=>'Imagenes ',
+            'required' => false,
+            'allow_delete' => true, // not mandatory, default is true
+            'download_link' => true, // not mandatory, default is true
+        ) );
     }
     
     /**

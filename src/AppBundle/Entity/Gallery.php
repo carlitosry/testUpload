@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
  * Gallery
  *
@@ -146,4 +147,8 @@ class Gallery
         $this->images = $images;
     }
 
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 }

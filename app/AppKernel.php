@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             /* NEW BUNDLEs*/
             new Vich\UploaderBundle\VichUploaderBundle(),
+//            new ManuelAguirre\Bundle\TranslationBundle\ManuelTranslationBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

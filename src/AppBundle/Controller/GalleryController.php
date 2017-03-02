@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Gallery;
+use AppBundle\Entity\ImagesGallery;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -26,6 +27,7 @@ class GalleryController extends Controller
 
         $galleries = $em->getRepository('AppBundle:Gallery')->findAll();
 
+
         return $this->render('gallery/index.html.twig', array(
             'galleries' => $galleries,
         ));
@@ -40,6 +42,7 @@ class GalleryController extends Controller
     public function newAction(Request $request)
     {
         $gallery = new Gallery();
+
         $form = $this->createForm('AppBundle\Form\GalleryType', $gallery);
         $form->handleRequest($request);
 

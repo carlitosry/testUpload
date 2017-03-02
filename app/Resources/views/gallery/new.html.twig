@@ -5,15 +5,20 @@
     <h1>Gallery creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.idCategory) }}
 
 
-    <ul id="email-fields-list"
-        data-prototype="{{ form_widget(form.images.vars.prototype)|e }}">
-        {% for gimages in form.images %}
+
+    {#{% for image in form.images %}#}
+        {#<li>{{ form_row(image.imagenFile) }}</li>#}
+    {#{% endfor %}#}
+
+    <ul id="email-fields-list"   data-prototype="{{ form_row(form.images.vars.prototype.imageFile)|e }}">
+        {% for item in form.images %}
             <li>
-                {{ form_errors(gimages) }}
-                {{ form_widget(gimages) }}
+                {{ form_row(item.imageFile)   }}
             </li>
         {% endfor %}
     </ul>
@@ -44,7 +49,7 @@
                 // replace the "__name__" used in the id and name of the prototype
                 // with a number that's unique to your emails
                 // end name attribute looks like name="contact[emails][2]"
-                newWidget = newWidget.replace(/__name__/g, emailCount);
+                newWidget = newWidget.replace(/_imageFile_/g, emailCount);
                 emailCount++;
 
                 // create a new list element and add it to the list

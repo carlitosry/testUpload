@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Imagesgallery controller.
  *
- * @Route("gallery/images/")
+ * @Route("gallery/images")
  */
 class ImagesGalleryController extends Controller
 {
